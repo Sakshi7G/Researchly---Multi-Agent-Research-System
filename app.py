@@ -351,6 +351,24 @@ button:focus-visible { outline: 3px solid var(--accent) !important; outline-offs
 details summary { font-weight: 600 !important; color: var(--ink) !important; }
 
 
+/* ── Report body text: enforce readable contrast ── */
+.st-key-report_card [data-testid="stMarkdownContainer"] p,
+.st-key-report_card [data-testid="stMarkdownContainer"] li,
+.st-key-report_card [data-testid="stMarkdownContainer"] blockquote,
+.st-key-critic_card [data-testid="stMarkdownContainer"] p,
+.st-key-critic_card [data-testid="stMarkdownContainer"] li,
+.st-key-critic_card [data-testid="stMarkdownContainer"] blockquote {
+    color: #1C1B19 !important;
+    opacity: 1 !important;
+}
+
+/* Keep report links readable as well */
+.st-key-report_card [data-testid="stMarkdownContainer"] a,
+.st-key-critic_card [data-testid="stMarkdownContainer"] a {
+    color: #2F5D50 !important;
+    opacity: 1 !important;
+}
+
 /* ── Accessibility: enforce readable text contrast ── */
 .brand-name,
 .hero-title,
