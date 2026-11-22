@@ -349,6 +349,55 @@ button:focus-visible { outline: 3px solid var(--accent) !important; outline-offs
 /* ── Expanders ── */
 
 details summary { font-weight: 600 !important; color: var(--ink) !important; }
+
+
+/* ── Accessibility: enforce readable text contrast ── */
+.brand-name,
+.hero-title,
+.section-title,
+.page-title,
+.pname,
+[data-testid="stMain"] h1,
+[data-testid="stMain"] h2,
+[data-testid="stMain"] h3 {
+    color: var(--ink) !important;
+    opacity: 1 !important;
+}
+
+.brand-sub,
+.side-label,
+.side-row,
+.side-empty,
+.topbar,
+.hero-sub,
+.try-label,
+.section-sub,
+.pnum,
+.pdesc,
+.score-label,
+.score-den {
+    color: var(--muted) !important;
+    opacity: 1 !important;
+}
+
+.eyebrow {
+    color: var(--accent) !important;
+    opacity: 1 !important;
+}
+
+.stTextArea label,
+.stTextArea label p,
+[data-testid="stWidgetLabel"] p {
+    color: var(--ink) !important;
+    opacity: 1 !important;
+}
+
+.stTextArea textarea::placeholder,
+.stTextInput input::placeholder {
+    color: var(--muted) !important;
+    opacity: 1 !important;
+}
+
 </style>
 """,
     unsafe_allow_html=True,
