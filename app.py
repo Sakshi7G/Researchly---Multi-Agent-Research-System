@@ -1,3 +1,4 @@
+import os
 import re
 import time
 from html import escape
@@ -12,8 +13,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
 from reportlab.platypus import HRFlowable, ListFlowable, ListItem, Paragraph, SimpleDocTemplate, Spacer
 
-from agents import build_search_agent, writer_chain, critic_chain
-from tools import scrape_url
+
 
 
 # ── Page config ──────────────────────────────────────────────────────────────
@@ -24,6 +24,16 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# ── Load API keys from Streamlit Secrets ─────────────────────────────────────
+
+for key in ["GROQ_API_KEY", "TAVILY_API_KEY"]:
+    if key in st.secrets:
+        os.environ[key] = st.secrets[key]
+
+# ── Import agents and tools after loading API keys ───────────────────────────
+
+from agents import build_search_agent, writer_chain, critic_chain
+from tools import scrape_url
 
 # ── Styles ───────────────────────────────────────────────────────────────────
 st.markdown(
